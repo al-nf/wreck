@@ -1,5 +1,7 @@
 #include <DCMotor.h>
 #include <Servo.h>
+#include <iostream>
+using namespace std;
 
 #define joystickX A0
 #define joystickY A1
@@ -21,7 +23,10 @@ void setup() {
 }
 
 void loop() {
-    digitalWrite(ledPin, digitalRead(sensor));
-    digitalWrite(servo1, analogRead(joystickX));
-    digitalWrite(servo2, analogRead(joystickY));
+    // digitalWrite(ledPin, digitalRead(sensor));
+    cout << digitalRead(sensor) << endl;
+    //digitalWrite(servo1, analogRead(joystickX));
+    cout << "X POS: " << analogRead(joystickX) << endl;
+    //digitalWrite(servo2, analogRead(joystickY));
+    cout << "Y POS: " <<analogRead(joystickY) << endl;
 }
