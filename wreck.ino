@@ -9,6 +9,8 @@ using namespace std;
 int joystickSW = 4;
 int servo1 = 9;
 int servo2 = 10;
+int motor1 = 7;
+int motor2 = 8;
 int ledPin = 6;
 int sensor = 5;
 
@@ -20,13 +22,15 @@ void setup() {
     pinMode(ledPin, OUTPUT);
     pinMode(servo1, OUTPUT);
     pinMode(servo2, OUTPUT);
+    pinMode(motor1, OUTPUT);
+    pinMode(motor2, OUTPUT);
 }
 
 void loop() {
-    // digitalWrite(ledPin, digitalRead(sensor));
     cout << digitalRead(sensor) << endl;
-    //digitalWrite(servo1, analogRead(joystickX));
+    // digitalWrite(ledPin, digitalRead(sensor));
     cout << "X POS: " << analogRead(joystickX) << endl;
-    //digitalWrite(servo2, analogRead(joystickY));
+    //digitalWrite(servo1, analogRead(joystickX));
     cout << "Y POS: " <<analogRead(joystickY) << endl;
+    //digitalWrite(servo2, analogRead(joystickY));
 }
