@@ -1,6 +1,6 @@
 #include <DCMotor.h>
 #include <Servo.h>
-#include <iostream>
+#include <ArduinoSTL.h>
 using namespace std;
 
 #define joystickX A0
@@ -24,13 +24,14 @@ void setup() {
     pinMode(servo2, OUTPUT);
     pinMode(motor1, OUTPUT);
     pinMode(motor2, OUTPUT);
+    Serial.begin(9600);
 }
 
 void loop() {
-    cout << digitalRead(sensor) << endl;
+    printf("sensor: %d", digitalRead(sensor));
     // digitalWrite(ledPin, digitalRead(sensor));
-    cout << "X POS: " << analogRead(joystickX) << endl;
+    printf("X Pos: %d", digitalRead(joystickX));
     //digitalWrite(servo1, analogRead(joystickX));
-    cout << "Y POS: " <<analogRead(joystickY) << endl;
+    printf("Y Pos: %d", digitalRead(joystickY));
     //digitalWrite(servo2, analogRead(joystickY));
 }
