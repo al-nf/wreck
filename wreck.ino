@@ -1,31 +1,43 @@
 #include <Servo.h>
-#include <ArduinoSTL.h>
-using namespace std;
 
-#define joystickX A1
-#define temp A0
-
+#define joystickX A0
 int joystickSW = 4;
-int servo1 = 9;
-int servo2 = 10;
-int ledPin = 6;
-int sensor = 5;
+Servo myservo;
+Servo myservo2;
+int servoPin = 9;
+int servoPin2 = 10;
 
-void setup() {
-    pinMode(joystickX, INPUT);
+void setup() 
+{
+
+    myservo.attach(servoPin);
+    myservo.write(90);
+    myservo2.attach(servoPin2);
+    myservo2.write(90);
     pinMode(joystickSW, INPUT);
-    pinMode(temp, INPUT);
-    pinMode(sensor, INPUT);
-    pinMode(ledPin, OUTPUT);
-    pinMode(servo1, OUTPUT);
-    pinMode(servo2, OUTPUT);
-    Serial.begin(9600);
 }
 
-void loop() {
-    printf("sensor: %d", digitalRead(sensor));
-    // digitalWrite(ledPin, digitalRead(sensor));
-    printf("X Pos: %d", digitalRead(joystickX));
-    //digitalWrite(servo1, analogRead(joystickX));
-    printf("Switch state: %d", digitalRead(joystickSW));
+void loop() 
+{
+    if (analogRead(joystickX) < 200)
+    {
+        myservo.write(180);
+    }
+    else if (analogRead(joystickX) > 823)
+    {
+        myservo.write(0);
+    }
+    else
+    {
+        myservo.write(90);
+    }
+
+    if (digitalRead(joystickSW) == HIGH)
+    {
+        myservo2.write(180);
+    }
+    else
+    {
+        myservo2.write(90);
+    }
 }
